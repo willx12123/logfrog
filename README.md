@@ -14,6 +14,14 @@ Logger lib for front end.
 2. 日志格式化输出，可输出文本格式或 JSON 格式
 3. 服务端日志，传输日志至指定接口
 
+## Install 安装
+
+```bash
+npm i logfrog
+# or
+yarn add logfrog
+```
+
 ## Example 示例
 
 ```ts
