@@ -1,5 +1,7 @@
 {
-  "name": "loggerman",
+  "name": "logfrog",
+  "author": "willx12123",
+  "description": "A simple log lib for front end.",
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
