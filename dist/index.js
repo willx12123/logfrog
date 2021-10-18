@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.options = exports.logger = exports.Level = void 0;
+var options_1 = require("./options");
+var logger_1 = require("./logger");
+var level_1 = require("./level");
+Object.defineProperty(exports, "Level", { enumerable: true, get: function () { return level_1.Level; } });
+var options = new options_1.Options();
+exports.options = options;
+var logger = new logger_1.Logger(options);
+exports.logger = logger;
