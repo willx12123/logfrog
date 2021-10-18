@@ -7,6 +7,7 @@ var Options = /** @class */ (function () {
         this._level = level_1.Level.INFO;
         this._writer = "console";
         this._formatter = "text";
+        this._requestUrl = "";
     }
     Object.defineProperty(Options.prototype, "level", {
         get: function () {
@@ -37,6 +38,16 @@ var Options = /** @class */ (function () {
     });
     Options.prototype.setFormatter = function (value) {
         this._formatter = value;
+    };
+    Object.defineProperty(Options.prototype, "requestUrl", {
+        get: function () {
+            return this._requestUrl;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Options.prototype.setRequestUrl = function (url) {
+        this._requestUrl = url;
     };
     return Options;
 }());

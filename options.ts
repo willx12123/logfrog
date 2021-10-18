@@ -7,6 +7,7 @@ export class Options {
   private _level: Level = Level.INFO;
   private _writer: WriterType = "console";
   private _formatter: FormatterType = "text";
+  private _requestUrl = "";
 
   get level(): Level {
     return this._level;
@@ -30,5 +31,13 @@ export class Options {
 
   setFormatter(value: FormatterType) {
     this._formatter = value;
+  }
+
+  get requestUrl(): string {
+    return this._requestUrl;
+  }
+
+  setRequestUrl(url: string) {
+    this._requestUrl = url;
   }
 }

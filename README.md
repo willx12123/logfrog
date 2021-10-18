@@ -1,4 +1,4 @@
-# logman
+# loggerman
 
 ## Introduce 简介
 
@@ -20,10 +20,27 @@ Logger lib for front end.
 import { logger, Level, options } from "loggerman";
 
 options.setLevel(Level.WARN);
-
-options.setFormatter("json");
+options.setFormatter("json"); // "json" | "text"
+options.setWriter("server"); // "server" | "console" | "all"
+options.setRequestUrl("https://localhost:8080/logs");
 
 logger.info("Init Successfully.");
 logger.warn("Should warning you first.");
 logger.error("Did task fail.");
+```
+
+```ts
+// JSON output type.
+// JSON 输出格式。
+
+// Request body.
+// 发送至服务器的数据格式。
+
+export type LogType = {
+  // Unix ms
+  timestamp: number;
+  level: LevelStr;
+  message: string;
+  extraFields?: { [key: string]: any };
+};
 ```

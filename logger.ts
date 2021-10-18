@@ -3,7 +3,9 @@ import { LogType } from "./types/log.type";
 import { formatToText } from "./formatter";
 
 import { Level, LevelStr } from "./level";
+
 import { Options } from "./options";
+import axios from "axios";
 
 const consolersMap = new Map([
   [LevelStr.DEBUG, console.debug],
@@ -20,7 +22,8 @@ const levelStringsMap = new Map<Level, LevelStr>([
 ]);
 
 export class Logger {
-  constructor(private options: Options) {}
+  constructor(private options: Options) {
+  }
 
   debug(...args: any[]) {
     if (this.options.level > Level.DEBUG) {
@@ -82,7 +85,15 @@ export class Logger {
     this.options.formatter === "json" ? consoler(log) : consoler(formatToText(log));
   }
 
-  private logToServer(log: LogType) {}
+  private logToServer(log: LogType) {
+    if (this.options.requestUrl === "") {
+      return;
+    }
+
+    axios.post(this.options.requestUrl, {
+      ...log,
+    }).catch((err) => console.error("Report log api request fail.", err));
+  }
 
   private argsToMessage(...args: any[]) {
     return args
