@@ -25,7 +25,7 @@ yarn add logfrog
 ## Example 示例
 
 ```ts
-import { logger, Level, options } from "loggerman";
+import { logger, Level, options } from "logfrog";
 
 options.setLevel(Level.WARN);
 options.setFormatter("json"); // "json" | "text"
